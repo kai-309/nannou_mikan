@@ -16,6 +16,8 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
 
   namespace :admin do
     get 'top' => 'homes#top', as: 'top'
+    get 'search' => 'homes#search', as: 'search'
+    get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
