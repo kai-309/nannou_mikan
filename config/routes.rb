@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-# 顧客用
+# 顧客用(public)
 # URL /customers/sign_in ...
 #不要なルーティング(passwords)を削除
 devise_for :customers,skip:[:passwords],controllers: {
@@ -7,7 +7,7 @@ devise_for :customers,skip:[:passwords],controllers: {
   sessions: 'public/sessions'
 }
 
-# 管理者用
+# 管理者用(admin)
 # URL /admin/sign_in ...
 #不要なルーティング(registrations, passwords)を削除
 devise_for :admin,skip:[:registrations,:passwords],controllers: {
@@ -15,9 +15,12 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
 }
 
   namespace :admin do
-    get 'top' => 'homes#top', as: 'top'
-    get 'search' => 'homes#search', as: 'search'
-    get 'customers/:customer_id/orders' => 'orders#index', as: 'customer_orders'
+    root :to =>"homes#top"
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
+    resources :genres, only: [:index, :edit, :create, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
