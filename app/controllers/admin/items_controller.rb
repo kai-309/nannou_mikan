@@ -18,6 +18,11 @@ class Admin::ItemsController < ApplicationController
     @items = Item.page(params[:page])
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
+
 
   #投稿データのストロングパラメータ
   private
