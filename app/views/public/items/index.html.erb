@@ -16,7 +16,7 @@
       <tbody>
         <% @items.each do |item| %>
           <tr>
-            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+            <td><%= link_to item.name, item_path(item.id) %></td>
             <td><%= item.excluded_price.to_s(:delmited) %> 円</td>
             <td>
               <div class="font-weight-bold">
