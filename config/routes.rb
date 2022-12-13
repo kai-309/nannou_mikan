@@ -29,7 +29,7 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
     get "cart_items/destroy_all"=>'cart_items#destroy_all', as: 'cart_items/destroy_all'
     get "orders/check"=>'orders#check', as: 'orders/check'
     get "orders/complete"=>'orders#complete', as: 'orders/complete'
-    get 'customers/my_page' => 'customers#show'
+    get 'customers/my_page' => 'customers#show', as: 'mypage'
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'
     resources :items, only: [:index, :show]
