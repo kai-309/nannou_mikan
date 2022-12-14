@@ -6,7 +6,7 @@
         <div id="top-image" class="top-box mt-3">
           <div class="card-img-overlay text-center mt-5">
             <div class="col-8 mx-auto pt-2 pb-2" style="background-color:rgba(255,255,254,0.5);">
-              <h4>ようこそ、ながのＣＡＫＥへ！！</h4>
+              <h4>ようこそ！</h4>
             </div>
           </div>
         </div>
@@ -14,13 +14,13 @@
       <h2>新着商品</h2>
       <div class="row">
         <% @item.each do |item| %>
-        <% if item.is_active == true %>
+        <% if item.is_status == true %>
           <div class="card text-center p-2 m-2">
             <%= link_to item_path(item) do %>
             <%= image_tag item.get_image(100, 100) %><br>
             <% end %>
             <p><%= item.name %></p>
-            <p>¥<%= item.purchase_price %>(税込)</p>
+            <p>¥<%= item.excluded_price %>(税込)</p>
           </div>
             <% end %>
             <% end %>
