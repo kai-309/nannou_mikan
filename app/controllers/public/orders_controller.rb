@@ -1,10 +1,14 @@
 class Public::OrdersController < ApplicationController
-    before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
     @customer = Customer.find(current_customer.id)
-    @address = current_customer.addresses.all
+    cart_items = current_customer.cart_items.all
+    # カート内が空の場合に注文画面へアクセスした時
+    if cart_items.blank?
+      redirect_to items_path
+    end
   end
 
   def create
@@ -56,6 +60,20 @@ class Public::OrdersController < ApplicationController
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order.total_payment = @cart_items.inject(800) { |sum, item| sum + item.subtotal }
     @shipping_cost = 800
+  end
+
+  def index
+    @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
+  end
+
+  def complete
+    # ordersテーブル内の現在ログインしている会員の一番最後のレコードを取得する。
+    @order = Order.where(customer_id: current_customer.id).last
   end
 
   private
