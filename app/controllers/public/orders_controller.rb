@@ -7,6 +7,23 @@ class Public::OrdersController < ApplicationController
     @address = current_customer.addresses.all
   end
 
+  def create
+    @order = current_customer.orders.new(order_params)
+    @cart_items = current_customer.cart_items.all
+    if @order.save
+      @cart_items.each do |cart_item|
+        @order_detail = @order.order_details.new #注文詳細の作成
+        @order_detail.item_id = cart_item.item_id #商品idの格納
+        @order_detail.quantity = cart_item.quantity #商品の個数の格納
+        @order_detail.inclusive_price = (cart_item.item.excluded_price * 1.10).floor #価格の格納
+        @order_detail.save #注文詳細の保存。
+      end
+      @cart_items.destroy_all
+      redirect_to complete_orders_path
+    else
+      render :new
+    end
+  end
 
   def check
     @order = Order.new(order_params)
@@ -39,6 +56,16 @@ class Public::OrdersController < ApplicationController
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order.total_payment = @cart_items.inject(800) { |sum, item| sum + item.subtotal }
     @shipping_cost = 800
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:payment_method, :post_code, :address, :name, :total_payment, :shipping_cost, :status)
+  end
+
+  def address_params
+    params.require(:order).permit(:attention_name, :address, :post_code)
   end
 
 end
