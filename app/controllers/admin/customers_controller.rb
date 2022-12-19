@@ -6,6 +6,10 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.page(params[:page]).per(10)
   end
 
+  def show
+    @customer = Customer.find(params[:id])
+  end
+
   private
 
   def customer_params
