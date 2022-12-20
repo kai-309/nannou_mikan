@@ -1,14 +1,14 @@
-<div class="container">
-  <h3 class="m-4"><span style="background-color:#eee">商品詳細</span></h3>
+<div class= col-11>
+  <h3 class="text-center pt-3">商品詳細</span></h3>
 </div>
 
 <br>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="text-center col-3">
+    <div class="text-center col-4">
       <%= image_tag @item.get_image(250,250) %>
     </div>
-    
+
   <div class="col-7">
     <table class="table table-borderless">
       <tr>
@@ -43,6 +43,6 @@
 </div>
 </div>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center pb-5">
   <%= link_to '編集する', edit_admin_item_path(@item.id), class: 'btn btn-success px-4' %>
 </div>
