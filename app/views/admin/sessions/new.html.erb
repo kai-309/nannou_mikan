@@ -1,16 +1,16 @@
 <div class='container', style="height: 600px;">
   <h4 class="text-center pt-5 d-block"><b>管理者ログイン</b></h4>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div class="field text-center">
+<div class="field text-center pt-4 d-block">
   <div class="row"></div>
   <%= f.label :メールアドレス　%>
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 </div>
-<div class="field text-center">
+<div class="field text-center pt-3 d-block">
   <%= f.label :パスワード　　　%>
   <%= f.password_field :password, autocomplete: "current-password" %>
 </div>
-<div class="actions text-center",>
+<div class="actions text-center pt-4 d-block",>
   <%= f.submit "ログイン", class: "btn btn-success" %>
 </div>
   <% end %>
