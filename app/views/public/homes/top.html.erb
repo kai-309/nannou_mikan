@@ -3,20 +3,28 @@
     <%= image_tag'top.jpg', size:"1100x500" ,style:"position: relative;" %>
   </div>
 </div>
+
 <div class="container">
-  <div class="row">
-    <div class="row">
-      <% @item.each do |item| %>
-      <% if item.is_status == true %>
-    <div class="card text-center p-2 m-2">
-      <%= link_to item_path(item) do %>
-      <%= image_tag item.get_image(100, 100) %><br>
-      <% end %>
-        <p><%= item.name %></p>
-        <p>¥<%= item.excluded_price %>(税込)</p>
-    </div>
-      <% end %>
-      <% end %>
+  <div class="pt-5 d-block">
+    <ul class="text-center nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item w-50 bg-light">
+        <a class="nav-link active link-text" id="follower-tab" data-toggle="tab" href="#follower" role="tab" aria-controls="follower" aria-selected="true">おすすめ商品</a>
+      </li>
+      <li class="nav-item w-50 bg-light">
+        <a class="nav-link link-text" id="followed-tab" data-toggle="tab" href="#followed" role="tab" aria-controls="followed" aria-selected="false">人気ランキング</a>
+      </li>
+    </ul>
+
+
+        <% @item.each do |item| %>
+        <% if item.is_status == true %>
+      <div class="card text-center">
+        <%= link_to item_path(item) do %>
+        <%= image_tag item.get_image(100, 100) %><br>
+        <% end %>
+　    </div>
+　   <% end %>
+     <% end %>
+      </div>
     </div>
   </div>
-</div>
