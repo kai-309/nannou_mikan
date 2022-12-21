@@ -33,7 +33,6 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'
     resources :items, only: [:index, :show]
-     get 'items/search/:id' => 'items#search',as: 'item_search'
     resources :cart_items, only: [:index, :update,:destroy, :create] do
       collection do
         delete "destroy_all" => "cart_items#destroy_all"
@@ -49,5 +48,6 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
 
     resources:addresses, only: [:index, :create, :edit, :update, :destroy]
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
