@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_many :cart_items
   has_many :order_details, dependent: :destroy
+  has_many :comments
   has_one_attached :image
 
   validates :image, presence: true

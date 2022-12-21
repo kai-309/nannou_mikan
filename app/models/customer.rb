@@ -7,6 +7,8 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :cart_items
   has_many :addresses, dependent: :destroy
+  has_many :comments
+
 
   # 入力フォームのバリデーション
   validates :first_name, presence: true

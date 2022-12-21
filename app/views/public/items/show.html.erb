@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
-      <div class="col-9">
+      <div class="col-10">
         <div class="row m-5 p-3 pb-5"  style="background-color:rgba(255,255,255,0.5);">
-          <div class="col-md-4" >
+          <div class="col-md-4">
             <%= image_tag @item.get_image(300, 200) %>
           </div>
           <div class="col-md-6 offset-md-2">
@@ -12,16 +12,24 @@
               <h6 class="ml-3 p-2"><%= @item.caption %></h6>
                 <div class="mb-3" style="float: right">
                   <div class="row">
-                  <p class="mr-3">¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>
-                  <p>数量：<%= f.select :quantity, *[1..10] %></p>
+                    <p class="mr-3">¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>
+                    <p>数量：<%= f.select :quantity, *[1..10] %></p>
                   </div>
                 </div>
                 <div class="ml-3">
-                  <%= f.submit "カートに入れる", class: "btn btn-block btn-secondary" %>
+                  <%= f.submit "カートに入れる", class: "btn btn-block btn-success" %>
                 </div>
                   <% end %>
-            </div>
+                <div class="row my-5">
+                  <%= render "public/comments/form", item: @item, comment: @comment %>
+                </div>
+                <div>
+                  <% @item.comments.each do |comment| %>
+                  <%= comment.comment %>
+                  <%= comment.customer %>
+                  <% end %>
+                </div>
+             </div>
           </div>
+        </div>
       </div>
-    </div>
-</div>
