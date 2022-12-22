@@ -24,11 +24,11 @@
                   <%= render "public/comments/form", item: @item, comment: @comment %>
                 </div>
                 <div>
-                  <% @item.comments.each do |comment| %>
-                  <%= comment.comment %>
-                  <%= comment.customer %>
+                  <% @item.reviews.each_with_index do |review, i| %>
+                    <%= render "public/items/show_rate", index: i, review: review %>
                   <% end %>
                 </div>
+
              </div>
           </div>
         </div>

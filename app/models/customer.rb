@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :addresses, dependent: :destroy
   has_many :comments
+  has_many :reviews
+
 
 
   # 入力フォームのバリデーション
