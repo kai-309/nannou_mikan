@@ -1,6 +1,10 @@
-<h3 class="text-center">ご注文ありがとうございました!</h1>
-<h4 class="text-center">
-  <%= link_to order_path(id: @order)do %>
-    注文詳細を見る
-  <% end %>
-</h4>
+<div class ="container pt-5" style="height: 580px;" >
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <div class="text-center">
+                <h1>ご注文ありがとうございました！</h1>
+                <div class="text-center align-middle"><%= link_to "TOPへ戻る", root_path , 'data-turbolinks': false %></div>
+            </div>
+        </div>
+    </div>
+</div>
