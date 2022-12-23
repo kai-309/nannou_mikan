@@ -1,8 +1,8 @@
 <div class='container'>
   <div class='row'>
-    <div class='pt-3 pl-5 ml-5'>
-      <h4 class='alart alert-secondary'>会員情報編集</h4>
-    </div>
+<div class="col-5">
+ <h3 class= "text-center mt-3 mb-4">会員情報編集</h3>
+</div>
   </div>
     <div class='row py-3 col-md-8 align-content-start'>
       <%= form_with url: customers_infomation_path, model: @customer, local:true do |f| %>
@@ -40,10 +40,13 @@
             <tr>
               <td class="col-3"></td>
               <td><%= f.submit '変更を保存', class: "btn btn-sm btn-success" %></td>
-              <td><%= link_to "退会する", customers_check_path, class: 'btn btn-danger btn-secondary' %></td>
+              <td><%= link_to "退会する", customers_check_path, class: 'btn btn-sm btn-danger' %></td>
             </tr>
           </tbody>
         </table>
       <% end %>
   </div>
 </div>
+
+
+
