@@ -1,13 +1,8 @@
 class Public::ReviewsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    # 見直し
     @reviews = Review.all
-    @all_rating = '総合評価'
-    @rating1 = '評価1'
-    @rating2 = '評価2'
-    @rating3 = '評価3'
-    @rating4 = '評価4'
+    @rating = '評価'
   end
 
   def create
@@ -17,7 +12,7 @@ class Public::ReviewsController < ApplicationController
     if @review.save
       redirect_to request.referer
     else
-      redirect_to request.referer # エラもんごんを渡した方がいいかと.
+      redirect_to request.referer # エラ-文言を渡した方がいいかと
     end
   end
 

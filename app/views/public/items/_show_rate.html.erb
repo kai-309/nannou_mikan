@@ -2,31 +2,23 @@
 <%= review.customer.last_name %>
 
 <div class="starrate">
-<%# 平均点を算出し、round関数で切り上げ %>
-評価：<%= review.rating %>
-<%# 評価数を星に置き換える %>
-<div id="review-rating-<%= index %>" data-score="<%= review.rating %>"></div>
-<%# jquery発火イベントを記載%>
-
-<div id="star-<%= index %>"> </div>
-<script>
-  // scriptファイルをどのidの部分に配置するかを指定
-  var elem = document.getElementById('star-<%= index %>');
-  var opt = {
-    //星画像の指定などのオプションをここに記述,
-      size     : 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      // scoreName: 'review[rating]',
-      readOnly: true,
-      half: true,
-      score: function() {
-        return $('#review-rating-<%= index %>').attr('data-score');
-      }
-   };
-  raty(elem,opt);
-  </script>
-<br>
-<%# 同様に、rating1なども記載する%>
+  評価：<%= review.rating %>
+    <div id="review-rating-<%= index %>" data-score="<%= review.rating %>"></div>
+    <div id="star-<%= index %>"> </div>
+      <script>
+        var elem = document.getElementById('star-<%= index %>');
+        var opt = {
+        //星画像の指定などのオプションをここに記述,
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          readOnly: true,
+          half: true,
+            score: function() {
+            return $('#review-rating-<%= index %>').attr('data-score');
+            }
+          };
+        raty(elem,opt);
+      </script>
 </div>

@@ -29,7 +29,3 @@ window.raty = function(elem,opt) {
   raty.init();
   return raty;
 }
-
-// raty 3.1.1
-// window.$ = window.jQuery = require('jquery');
-// require('packs/jquery.raty');
