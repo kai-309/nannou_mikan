@@ -10,7 +10,4 @@ class Public::ItemsController < ApplicationController
     @comment = Comment.new
     @reviews = @item.reviews
   end
-
-
-
 end
