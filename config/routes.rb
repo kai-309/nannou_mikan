@@ -37,7 +37,7 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
      resources :comments, only: [:create, :destroy]
      resources :reviews
     end
-    resources :cart_items, only: [:index, :update,:destroy, :create] do
+    resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
         delete "destroy_all" => "cart_items#destroy_all"
       end
