@@ -16,11 +16,15 @@
           </tr>
           <tr>
             <td>商品説明</td>
-            <td><%= f.text_area :caption,placeholder:"ここに説明文を記述します", :size=>"30x9" %></td>
+            <td><%= f.text_area :caption, placeholder:"ここに説明文を記述します", :size=>"30x9" %></td>
           </tr>
           <tr>
             <td>税抜価格</td>
             <td><%= f.text_field :excluded_price, placeholder:"1000", :size=>"19x7" %>円</td>
+          </tr>
+          <tr>
+            <td>タグ</td>
+            <td><%= f.text_field :tag_name, placeholder:"サイズを記載", :size=>"19x7" %></td>
           </tr>
           <tr>
             <td>販売ステータス</td>

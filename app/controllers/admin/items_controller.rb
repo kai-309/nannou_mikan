@@ -7,9 +7,13 @@ class Admin::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.admin_id = current_admin.id
+    #tag_list = params[:item][:tag_name].split(',')
     if @item.save
+      #@item.save_tags(tag_list)
       redirect_to admin_item_path(@item.id)
     else
+      @items = Item.all
       render :new
     end
   end
@@ -36,7 +40,7 @@ class Admin::ItemsController < ApplicationController
   #投稿データのストロングパラメータ
   private
   def item_params
-    params.require(:item).permit(:image, :name, :caption, :excluded_price, :is_status)
+    params.require(:item).permit(:image, :name, :caption, :excluded_price, :admin_id, :is_status)
   end
 
 end

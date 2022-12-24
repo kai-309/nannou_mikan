@@ -41,6 +41,11 @@
                 <% end %>
               </div>
             </td>
+            <td>
+              <%# book.tags.each do |tag| %>
+                <%#= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %>
+              <%# end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

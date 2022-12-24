@@ -16,6 +16,5 @@ class Tag < ApplicationRecord
     end
 
     return tags.inject(init = []) {|result, tag| result + tag.items}
-
   end
 end
