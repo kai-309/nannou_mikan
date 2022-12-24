@@ -19,9 +19,20 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    puts "test"
+    puts params
+    if params[:latest] == "true"
+      @reviews = Review.latest
+    elsif params[:old] == "true"
+      @Reviews = Review.old
+    elsif params[:star_count] == "true"
+      @reviews = Review.star_count
+    else
+      @reviews = Review.all
+    end
     @item = Item.find(params[:id])
   end
-  
+
   def edit
     @item = Item.find(params[:id])
   end
@@ -31,8 +42,8 @@ class Admin::ItemsController < ApplicationController
     item.update(item_params)
     redirect_to admin_items_path(item.id)
   end
-  
-  
+
+
   #投稿データのストロングパラメータ
   private
   def item_params

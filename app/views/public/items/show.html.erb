@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-      <div class="col-10">
+      <div class="col-11">
         <div class="row m-5 p-3 pb-5"  style="background-color:rgba(255,255,255,0.5);">
           <div class="col-md-4">
             <%= image_tag @item.get_image(300, 200) %>
@@ -24,11 +24,13 @@
                   <%= render "public/comments/form", item: @item, comment: @comment %>
                 </div>
                 <div>
-                  <% @item.reviews.each_with_index do |review, i| %>
+                  <% @reviews.each_with_index do |review, i| %>
                     <%= render "public/items/show_rate", index: i, review: review %>
                   <% end %>
                 </div>
-
+                  <%= link_to '新しい順', item_path(latest: "true") %>
+                    |<%= link_to '古い順', item_path(old: "true") %>
+                    |<%= link_to '評価の高い順', item_path(rating: "true") %>
              </div>
           </div>
         </div>

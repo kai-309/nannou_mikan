@@ -9,5 +9,15 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
     @comment = Comment.new
     @reviews = @item.reviews
+    if params["latest"] == "true"
+      @reviews = @item.reviews.latest
+    elsif params["old"] == "true"
+      @reviews = @item.reviews.old
+    elsif params["rating"] == "true"
+      @reviews = @item.reviews.rating
+    else
+      @reviews = @item.reviews.all
+    end
+    @item = Item.find(params[:id])
   end
 end

@@ -1,8 +1,13 @@
 class Public::ReviewsController < ApplicationController
   before_action :authenticate_customer!
   def index
+    # 見直し
     @reviews = Review.all
     @rating = '評価'
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -12,7 +17,7 @@ class Public::ReviewsController < ApplicationController
     if @review.save
       redirect_to request.referer
     else
-      redirect_to request.referer # エラ-文言を渡した方がいいかと
+      redirect_to request.referer # エラ-文言を渡した方がいいかと.
     end
   end
 
