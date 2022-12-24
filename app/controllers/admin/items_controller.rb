@@ -19,17 +19,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    puts "test"
-    puts params
-    if params[:latest] == "true"
-      @reviews = Review.latest
-    elsif params[:old] == "true"
-      @Reviews = Review.old
-    elsif params[:star_count] == "true"
-      @reviews = Review.star_count
-    else
-      @reviews = Review.all
-    end
     @item = Item.find(params[:id])
   end
 

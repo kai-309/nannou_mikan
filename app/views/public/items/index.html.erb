@@ -35,7 +35,7 @@
                 評価：<%= item.reviews.average(:rating).to_f.round(1) %>
               </div>
             </td>
-            <td>コメント数: <%= item.comments.count %></td>
+            <td>コメント数: <%= item.reviews.count %></td>
           </tr>
         <% end %>
       </tbody>

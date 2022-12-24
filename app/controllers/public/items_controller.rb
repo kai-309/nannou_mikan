@@ -4,10 +4,11 @@ class Public::ItemsController < ApplicationController
     @items = Item.page(params[:page])
   end
 
+
   def show
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
-    @comment = Comment.new
+    @review = Review.new
     @reviews = @item.reviews
     if params["latest"] == "true"
       @reviews = @item.reviews.latest

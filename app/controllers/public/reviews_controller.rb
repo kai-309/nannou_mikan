@@ -11,22 +11,18 @@ class Public::ReviewsController < ApplicationController
   end
 
   def create
-    # byebug
     @review = Review.new(review_params)
-    @review.comment = params[:comment] # ストロングパラメタが治るといらない
     if @review.save
       redirect_to request.referer
     else
-      redirect_to request.referer # エラ-文言を渡した方がいいかと.
     end
   end
 
+
   def review_params
-    # 本来commentパラメタが取れるはず.
     params.require(:review).permit(:comment, :rating).merge(
       customer_id: current_customer.id, item_id: params[:item_id]
     )
-
   end
 end
 
