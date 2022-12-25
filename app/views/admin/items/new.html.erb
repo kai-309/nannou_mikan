@@ -3,8 +3,8 @@
     <h3 class="text-center pt-3">商品新規登録</span></h3>
   </div>
   <div class="container">
-    <div class="row">
-      <div class="col-8">
+    <div class="row justify-content-center">
+      <div class="col-7">
         <table class="table table-borderless">
           <tr>
             <td>商品画像</td>
@@ -24,7 +24,7 @@
           </tr>
           <tr>
             <td>タグ</td>
-            <td><%= f.text_field :tag_name, placeholder:"サイズを記載", :size=>"19x7" %></td>
+            <td><%= f.text_field :tag_name, :size=>"19x7" %></td>
           </tr>
           <tr>
             <td>販売ステータス</td>

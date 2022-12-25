@@ -19,6 +19,7 @@ devise_for :admin,skip:[:registrations,:passwords],controllers: {
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
+    get '/search', to: 'searches#search'
   end
 
   scope module: :public do

@@ -23,6 +23,7 @@
           <th>商品名</th>
           <th>税抜価格</th>
           <th>ステータス</th>
+          <th>タグ</th>
         </tr>
       </thead>
 <!--登録内容-->
@@ -42,12 +43,13 @@
               </div>
             </td>
             <td>
-              <%# book.tags.each do |tag| %>
-                <%#= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %>
-              <%# end %>
+              <% item.tags.each do |tag| %>
+                <%= link_to tag.name, admin_search_path(content: tag.name, model:"tag", method: "perfect") %>
+              <% end %>
             </td>
           </tr>
         <% end %>
+        <%= render "admin/searches/tag_form" %>
       </tbody>
     </table>
 <!--ページネーション-->

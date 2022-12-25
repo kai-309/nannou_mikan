@@ -26,17 +26,17 @@ class Item < ApplicationRecord
       image.variant(resize_to_limit: [width,height]).processed
   end
 
-  def save_items(tags)
+  def save_tags(tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - tags
     new_tags = tags - current_tags
 
     old_tags.each do |old_name|
-      self.tags.delete Tag.find_by(tag_name: old_name)
+      self.tags.delete Tag.find_by(name: old_name)
     end
 
     new_tags.each do |new_name|
-      item_tag = Tag.find_or_create_by(tag_name: new_name)
+      item_tag = Tag.find_or_create_by(name: new_name)
       self.tags << item_tag
     end
   end

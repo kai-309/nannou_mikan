@@ -6,15 +6,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+   
     @item = Item.new(item_params)
     @item.admin_id = current_admin.id
-    #tag_list = params[:item][:tag_name].split(',')
+    tag_list = params[:item][:tag_name].split(',')
     if @item.save
-      #@item.save_tags(tag_list)
+      @item.save_tags(tag_list)
       redirect_to admin_item_path(@item.id)
     else
       @items = Item.all
       render :new
+      render 'index'
     end
   end
 
