@@ -10,6 +10,9 @@
         style="width:6rem;height:3rem;">新規</button>
       <% end %></p>
     </div>
+    <div class="m-4 text-end">
+      <%= render "admin/searches/tag_form" %>
+    </div>
   </div>
 </div>
 <!--一覧項目-->
@@ -49,7 +52,6 @@
             </td>
           </tr>
         <% end %>
-        <%= render "admin/searches/tag_form" %>
       </tbody>
     </table>
 <!--ページネーション-->

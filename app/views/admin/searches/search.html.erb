@@ -4,14 +4,10 @@
       <div class= col-11>
         <h3 class="m-4 text-center">商品一覧</span></h3>
       </div>
-<!--新規登録への移行ボタン-->
-      <div class="col-1">
-        <p class="my-4"><%= link_to new_admin_item_path do %>
-          <button type="button" class="btn btn rounded-circle p-0 bg-success text-white"
-          style="width:6rem;height:3rem;">新規</button>
-        <% end %></p>
+      <div class="m-4 text-end">
+        <%= render "admin/searches/tag_form" %>
       </div>
-     </div>
+    </div>
   </div>
 <!--一覧項目-->
   <div class="container text-center">
@@ -50,7 +46,6 @@
                </td>
              </tr>
            <% end %>
-           <%= render "admin/searches/tag_form" %>
          </tbody>
       </table>
     </div>
