@@ -5,7 +5,7 @@
 <%= form_with model: @address, local:true do |f| %>
    <div class="form-group row">
     <%= f.label "郵便番号" %>
-    <%= f.text_field :postcode, placeholder: "0001111", class: 'ml-3' %>
+    <%= f.text_field :post_code, placeholder: "0001111", class: 'ml-3' %>
    </div>
 
    <div class="form-group row">
@@ -36,13 +36,13 @@
     </tr>
   </thead>
   <tbody style="background-color:white;">
-     <% @addresses.each do |delivery| %>
+     <% @addresses.each do |address| %>
      <tr class="text-center">
-       <td><%= delivery.postcode %></td>
-       <td><%= delivery.address %></td>
-       <td><%= delivery.name %></td>
-       <td><%= link_to "編集する", edit_delivery_path(delivery), class: 'btn btn-success' %>
-           <%= link_to "削除する", delivery_path(delivery), method: :delete, class: 'btn btn-danger' %></td>
+       <td><%= address.post_code %></td>
+       <td><%= address.address %></td>
+       <td><%= address.attention_name %></td>
+       <td><%= link_to "編集する", edit_address_path(address.id), class: 'btn btn-success' %>
+           <%= link_to "削除する", address_path(address.id), method: :delete, class: 'btn btn-danger' %></td>
      </tr>
      <% end %>
   </tbody>
