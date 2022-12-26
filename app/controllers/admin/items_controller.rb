@@ -6,7 +6,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-   
+
     @item = Item.new(item_params)
     @item.admin_id = current_admin.id
     tag_list = params[:item][:tag_name].split(',')
@@ -16,7 +16,6 @@ class Admin::ItemsController < ApplicationController
     else
       @items = Item.all
       render :new
-      render 'index'
     end
   end
 
