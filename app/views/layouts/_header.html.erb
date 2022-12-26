@@ -3,7 +3,7 @@
     <div class="container" style='height:100px'>
       <nav class="navbar-brand navbar-left header-logo bg-warning">
         <%= link_to image_tag("logo.jpg", size: "200x90"), root_path, class: "header-button btn text-light" %>
-　　　</nav>
+      </nav>
           <!--管理側のheader-->
           <div class="row">
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -22,7 +22,6 @@
                   <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
               <% else %><!--非ログイン時に表示するheader-->
                 <% unless admin_signed_in? %>
-                  <li><%#= link_to "南濃みかん", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutへのリンク-->
                   <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "新規会員登録", new_customer_registration_path, class: 'nav-link text-dark' %></li><!--新規登録へのリンク-->
                   <li><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面へのリンク-->

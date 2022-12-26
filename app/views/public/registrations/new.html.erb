@@ -1,109 +1,104 @@
 <!-- 顧客側 -->
 <div class="container pt-4 text-center">
-
-    <h4>新規会員登録</h4>
-
+  <h4>新規会員登録</h4>
     <%= form_with model: @customer, url: registration_path(resource_name), local: true do |f| %>
-      <%= render "public/shared/error_messages", resource: resource %>
+    <%= render "public/shared/error_messages", resource: resource %>
+  <table class="table table-borderless align-middle">
+    <tbody>
+      <tr>
+        <td>名前</td>
+        <td class="text-right">
+          <%= f.label :first_name, "(姓)" %>
+        </td>
+        <td>
+          <%= f.text_field :first_name, autofocus: true, placeholder: "(例)山田", class: "form-control" %>
+        </td>
+        <td class="text-rigth">
+          <%= f.label :last_name, "(名)" %>
+        </td>
+        <td>
+          <%= f.text_field :last_name, placeholder: "(例)太朗",class: "form-control" %>
+        </td>
+      </tr>
+      <tr>
+        <td>フリガナ</td>
+        <td class="text-right">
+          <%= f.label :first_name_kana, "(セイ)" %>
+        </td>
+        <td>
+          <%= f.text_field :first_name_kana, placeholder: "(例)ヤマダ", class: "form-control" %>
+        </td>
+        <td class="text-right">
+          <%= f.label :last_name_kana, "(メイ)" %>
+        </td>
+        <td>
+          <%= f.text_field :last_name_kana, placeholder: "(例)タロウ", class: "form-control" %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.label :email, "メールアドレス" %></td>
+        <td></td>
+        <td>
+          <%= f.email_field :email, autocomplete: "email", placeholder: "(例)sample@mail.com", class: "form-control" %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>郵便番号(ハイフンなし)</td>
+        <td></td>
+        <td>
+          <%= f.text_field :post_code, autocomplete: "post_code", placeholder: "(例)1234567", class: "form-control" %>
+        </td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td></td>
+        <td colspan>
+          <%= f.text_field :address, autocomplete: "address", placeholder: "(例)〇〇県□□市△△町番地", class: "form-control" %>
+        </td>
+      </tr>
+      <tr>
+        <td>電話番号(ハイフンなし)</td>
+        <td></td>
+        <td>
+          <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "(例)00012345678", class: "form-control" %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :password, "パスワード" %>
+          <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 文字以上)
+          <% end %>
+        </td>
+        <td></td>
+        <td>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上必要です", class: "form-control" %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+        <td></td>
+        <td>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記の値をもう一度入力してください", class: "form-control" %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          <%= f.submit "新規登録", class: 'btn btn-success' %>
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
 
-      <table class="table table-borderless align-middle">
-        <tbody>
-          <tr>
-            <td>名前</td>
-            <td class="text-right">
-              <%= f.label :first_name, "(姓)" %>
-            </td>
-            <td>
-              <%= f.text_field :first_name, autofocus: true, placeholder: "(例)山田", class: "form-control" %>
-            </td>
-            <td class="text-rigth">
-              <%= f.label :last_name, "(名)" %>
-            </td>
-            <td>
-              <%= f.text_field :last_name, placeholder: "(例)太朗",class: "form-control" %>
-            </td>
-          </tr>
-          <tr>
-            <td>フリガナ</td>
-            <td class="text-right">
-              <%= f.label :first_name_kana, "(セイ)" %>
-            </td>
-            <td>
-              <%= f.text_field :first_name_kana, placeholder: "(例)ヤマダ", class: "form-control" %>
-            </td>
-            <td class="text-right">
-              <%= f.label :last_name_kana, "(メイ)" %>
-            </td>
-            <td>
-              <%= f.text_field :last_name_kana, placeholder: "(例)タロウ", class: "form-control" %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :email, "メールアドレス" %></td>
-            <td></td>
-            <td>
-              <%= f.email_field :email, autocomplete: "email", placeholder: "(例)sample@mail.com", class: "form-control" %>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>郵便番号(ハイフンなし)</td>
-            <td></td>
-            <td>
-              <%= f.text_field :post_code, autocomplete: "post_code", placeholder: "(例)1234567", class: "form-control" %>
-            </td>
-          </tr>
-          <tr>
-            <td>住所</td>
-            <td></td>
-            <td colspan>
-              <%= f.text_field :address, autocomplete: "address", placeholder: "(例)〇〇県□□市△△町番地", class: "form-control" %>
-            </td>
-          </tr>
-          <tr>
-            <td>電話番号(ハイフンなし)</td>
-            <td></td>
-            <td>
-              <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "(例)00012345678", class: "form-control" %>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>
-              <%= f.label :password, "パスワード" %>
-              <% if @minimum_password_length %>
-                (<%= @minimum_password_length %> 文字以上)
-              <% end %>
-            </td>
-            <td></td>
-            <td>
-              <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上必要です", class: "form-control" %>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-            <td></td>
-            <td>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記の値をもう一度入力してください", class: "form-control" %>
-            </td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>
-              <%= f.submit "新規登録", class: 'btn btn-success' %>
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <% end %>
-
-      <h5>※既に登録済みの方</h5>
-
-      <%= render "public/shared/links" %>
-
+<h5>※既に登録済みの方</h5>
+<%= render "public/shared/links" %>
 </div>
 
