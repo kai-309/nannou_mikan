@@ -19,7 +19,7 @@
       <tbody>
         <% @items.each do |item| %>
           <tr>
-            <td><%= link_to item.name, item_path(item.id) %></td>
+            <td><%= image_tag item.get_image(85,85) %>　<%= link_to item.name, item_path(item.id) %></td>
             <td><%= item.add_tax_price.to_s(:delimited)%> 円</td>
             <td>
               <div class="font-weight-bold">
