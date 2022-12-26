@@ -1,12 +1,12 @@
 <div class="container">
-    <div class="row">
-      <div class="col-11">
-        <div class="row m-5 p-3 pb-5"  style="background-color:rgba(255,255,255,0.5);">
-          <div class="col-md-4">
-            <%= image_tag @item.get_image(300, 200) %>
-          </div>
-          <div class="col-md-6 offset-md-2">
-            <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+  <div class="row">
+    <div class="col-11">
+      <div class="row m-5 p-3 pb-5"  style="background-color:rgba(255,255,255,0.5);">
+        <div class="col-md-4">
+          <%= image_tag @item.get_image(300, 200) %>
+        </div>
+        <div class="col-md-6 offset-md-2">
+          <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
             <%= f.hidden_field :item_id, :value => @item.id %>
               <h4 class="ml-3 p-2"><%= @item.name %></h4>
               <h6 class="ml-3 p-2"><%= @item.caption %></h6>
