@@ -1,37 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-11">
-      <div class="row m-5 p-3 pb-5"  style="background-color:rgba(255,255,255,0.5);">
-        <div class="col-md-4">
-          <%= image_tag @item.get_image(300, 200) %>
-        </div>
-        <div class="col-md-6 offset-md-2">
-          <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-            <%= f.hidden_field :item_id, :value => @item.id %>
-              <h4 class="ml-3 p-2"><%= @item.name %></h4>
-              <h6 class="ml-3 p-2"><%= @item.caption %></h6>
-                <div class="mb-3" style="float: right">
-                  <div class="row">
-                    <p class="mr-3">¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>
-                    <p>数量：<%= f.select :quantity, *[1..10] %></p>
-                  </div>
-                </div>
-                <div class="ml-3">
-                  <%= f.submit "カートに入れる", class: "btn btn-block btn-success" %>
-                </div>
-                  <% end %>
-                <div class="row my-5">
-                  <%= render "public/comments/form", item: @item, comment: @comment %>
-                </div>
-                <div>
-                  <% @reviews.each_with_index do |review, i| %>
-                    <%= render "public/items/show_rate", index: i, review: review %>
-                  <% end %>
-                </div>
-                  <%= link_to '新しい順', item_path(latest: "true") %>
-                    |<%= link_to '古い順', item_path(old: "true") %>
-                    |<%= link_to '評価の高い順', item_path(rating: "true") %>
-             </div>
-          </div>
-        </div>
-      </div>
+<div class="container pt-5 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= image_tag @item.get_image(300, 200) %>
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+          <%= f.hidden_field :item_id, :value => @item.id %>
+            <h4 class="ml-3 p-2"><%= @item.name %></h4>
+            <h6 class="ml-3 p-2"><%= @item.caption %></h6>
+            <div class="mb-3" style="float: right">
+              <div class="row">
+                <p class="mr-2">¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>
+                <p>数量：<%= f.select :quantity, *[1..10] %></p>
+              </div>
+            </div>
+            <div class="ml-5 pt-5">
+              <%= f.submit "カートに入れる", class: "btn btn-success" %>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-4">
+      <%= link_to '新しい順', item_path(latest: "true") %>
+      |<%= link_to '古い順', item_path(old: "true") %>
+      |<%= link_to '評価の高い順', item_path(rating: "true") %>
+      <%= render "public/comments/form", item: @item, comment: @comment %>
+      <br>
+      <% @reviews.each_with_index do |review, i| %>
+        <%= render "public/items/show_rate", index: i, review: review %>
+     <% end %>
+  </div>
+</div>
