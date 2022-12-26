@@ -1,40 +1,42 @@
-<div class= col-12>
-  <h3 class="text-center pt-3">商品詳細</span></h3>
-</div>
-<br>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="text-center col-4">
-      <%= image_tag @item.get_image(250,250) %>
-    </div>
-    <div class="col-7">
-      <table class="table table-borderless">
-        <tr>
-          <td class="col-3">商品名</td>
-          <td><%= @item.name %></td>
-        </tr>
-        <tr>
-          <td>商品説明</td>
-          <td><%= @item.caption %></td>
-        </tr>
-        <tr>
-          <td>税込価格<br>
-              (税抜価格)</td>
-          <td><%= @item.add_tax_price.to_s(:delimited) %>
-            <span>(<%= @item.excluded_price.to_s(:delimited) %>)</span>円
-          </td>
-        </tr>
-        <tr>
-          <td class="col-3">販売ステータス</td>
-          <td>
-            <% if @item.is_status == true %>
-              <p class="text-success font-weight-bold">販売中</p>
-            <% else %>
-              <p class='text-secondary font-weight-bold'>販売停止中</p>
-            <% end %>
-          </td>
-        </tr>
-      </table>
+<div class='container', style="height: 580px;">
+  <div class= col-12>
+    <h3 class="text-center pt-3">商品詳細</span></h3>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="text-center col-4">
+        <%= image_tag @item.get_image(250,250) %>
+      </div>
+      <div class="col-7">
+        <table class="table table-borderless">
+          <tr>
+            <td class="col-3">商品名</td>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td>商品説明</td>
+            <td><%= @item.caption %></td>
+          </tr>
+          <tr>
+            <td>税込価格<br>
+                (税抜価格)</td>
+            <td><%= @item.add_tax_price.to_s(:delimited) %>
+              <span>(<%= @item.excluded_price.to_s(:delimited) %>)</span>円
+            </td>
+          </tr>
+          <tr>
+            <td class="col-3">販売ステータス</td>
+            <td>
+              <% if @item.is_status == true %>
+                <p class="text-success font-weight-bold">販売中</p>
+              <% else %>
+                <p class='text-secondary font-weight-bold'>販売停止中</p>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>
