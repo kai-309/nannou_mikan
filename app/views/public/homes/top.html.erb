@@ -1,31 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10 mx-auto pt-4">
-
-    <%= image_tag'top.jpg', size:"700x280"%>
+      <%= image_tag'top.jpg', size:"700x280"%>
+    </div>
+    </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-9 mx-auto pt-4">
+      <h5>おすすめ商品</h5>
+    </div>
   </div>
-</div>
-</div>
-<div class="container">
-  <div class="row">
-  <div class="col-9 mx-auto pt-4">
-<h5>おすすめ商品</h5>
-</div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 mx-auto">
-            <div class="row">
-                <% @item.each do |item| %>
-                <% if item.is_status == true %>
-                    <div class="card text-center p-2 m-2">
-                        <%= link_to item_path(item) do %>
-                        <%= image_tag item.get_image(150, 200) %><br>
-                        <% end %>
-                        <p><%= item.name %></p>
-                        <p>¥<%= item.excluded_price %>(税込)</p>
-                    </div>
-                <% end %>
-                <% end %>
-            </div>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 mx-auto">
+          <div class="row">
+            <% @item.each do |item| %>
+            <% if item.is_status == true %>
+              <div class="card text-center p-2 m-2">
+                 <%= link_to item_path(item) do %>
+                   <%= image_tag item.get_image(150, 200) %><br>
+                 <% end %>
+                   <p><%= item.name %></p>
+                   <p>¥<%= item.excluded_price %>(税込)</p>
+              </div>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
