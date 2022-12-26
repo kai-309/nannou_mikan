@@ -1,11 +1,14 @@
+<div class= col-11>
+      <h3 class="text-center pt-4">商品詳細</span></h3>
+    </div>
 <div class="container pt-5 pb-5">
   <div class="row justify-content-center">
     <div class="col-4">
       <%= image_tag @item.get_image(300, 200) %>
         <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
-            <h4 class="ml-3 p-2"><%= @item.name %></h4>
-            <h6 class="ml-3 p-2"><%= @item.caption %></h6>
+            <h5 class="ml-1 p-2"><%= @item.name %></h5>
+            <h6 class="ml-1 p-2"><%= @item.caption %></h6>
             <div class="mb-3" style="float: right">
               <div class="row">
                 <p class="mr-2">¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</p>

@@ -1,10 +1,10 @@
+<%= review.customer.first_name %>さん
+<br>
 <%= review.comment %>
-<%= review.customer.last_name %>
-
 <div class="starrate">
   評価：<%= review.rating %>
-    <div id="review-rating-<%= index %>" data-score="<%= review.rating %>"></div>
     <div id="star-<%= index %>"> </div>
+    <div id="review-rating-<%= index %>" data-score="<%= review.rating %>"></div>
       <script>
         var elem = document.getElementById('star-<%= index %>');
         var opt = {

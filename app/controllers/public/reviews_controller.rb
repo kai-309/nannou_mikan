@@ -1,7 +1,6 @@
 class Public::ReviewsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    # 見直し
     @reviews = Review.all
     @rating = '評価'
   end
@@ -17,7 +16,6 @@ class Public::ReviewsController < ApplicationController
     else
     end
   end
-
 
   def review_params
     params.require(:review).permit(:comment, :rating).merge(

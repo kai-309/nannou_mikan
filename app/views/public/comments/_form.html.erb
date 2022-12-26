@@ -1,21 +1,21 @@
 <%= form_with url: item_reviews_path(item), model:@review, local: true do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
-    <div class="field" id="star">
-      <%= f.label :rating, "星評価：" %>
-      <%= f.hidden_field :rating, id: :review_star, value: 'score' %>
-        <script>
-          var elem = document.getElementById('star');
-          var opt = {
+  <div class="field" id="star">
+    <%= f.label :rating, "星評価：" %>
+    <%= f.hidden_field :rating, id: :review_star, value: 'score' %>
+      <script>
+        var elem = document.getElementById('star');
+        var opt = {
           //星画像の指定などのオプションをここに記述,
-            size     : 36,
-            starOff:  '<%= asset_path('star-off.png') %>',
-            starOn : '<%= asset_path('star-on.png') %>',
-            starHalf: '<%= asset_path('star-half.png') %>',
-            scoreName: 'review[rating]',
-            half: false,
-          };
-          raty(elem,opt);
-        </script>
-    </div>
-    <%= f.submit "送信する", class:"btn btn-success px-4" %>
-    <% end %>
+          size     : 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          scoreName: 'review[rating]',
+          half: false,
+        };
+        raty(elem,opt);
+      </script>
+        <%= f.text_area :comment, rows:'5',placeholder: "感想はこちらにご入力お願います!", class: "w-100" %>
+  </div>
+  <%= f.submit "送信する", class:"btn btn-success px-4" %>
+  <% end %>
