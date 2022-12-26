@@ -14,13 +14,13 @@
               <%= f.label :first_name, "(姓)" %>
             </td>
             <td>
-              <%= f.text_field :first_name, autofocus: true, placeholder: "山田", class: "form-control" %>
+              <%= f.text_field :first_name, autofocus: true, placeholder: "(例)山田", class: "form-control" %>
             </td>
             <td class="text-rigth">
               <%= f.label :last_name, "(名)" %>
             </td>
             <td>
-              <%= f.text_field :last_name, placeholder: "一郎",class: "form-control" %>
+              <%= f.text_field :last_name, placeholder: "(例)太朗",class: "form-control" %>
             </td>
           </tr>
           <tr>
@@ -29,20 +29,20 @@
               <%= f.label :first_name_kana, "(セイ)" %>
             </td>
             <td>
-              <%= f.text_field :first_name_kana, placeholder: "ヤマダ", class: "form-control" %>
+              <%= f.text_field :first_name_kana, placeholder: "(例)ヤマダ", class: "form-control" %>
             </td>
             <td class="text-right">
               <%= f.label :last_name_kana, "(メイ)" %>
             </td>
             <td>
-              <%= f.text_field :last_name_kana, placeholder: "イチロウ", class: "form-control" %>
+              <%= f.text_field :last_name_kana, placeholder: "(例)タロウ", class: "form-control" %>
             </td>
           </tr>
           <tr>
             <td><%= f.label :email, "メールアドレス" %></td>
             <td></td>
             <td>
-              <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+              <%= f.email_field :email, autocomplete: "email", placeholder: "(例)sample@mail.com", class: "form-control" %>
             </td>
             <td></td>
           </tr>
@@ -50,21 +50,21 @@
             <td>郵便番号(ハイフンなし)</td>
             <td></td>
             <td>
-              <%= f.text_field :post_code, autocomplete: "post_code", placeholder: "1234567", class: "form-control" %>
+              <%= f.text_field :post_code, autocomplete: "post_code", placeholder: "(例)1234567", class: "form-control" %>
             </td>
           </tr>
           <tr>
             <td>住所</td>
             <td></td>
             <td colspan>
-              <%= f.text_field :address, autocomplete: "address", placeholder: "都道府県市町村番地0-0", class: "form-control" %>
+              <%= f.text_field :address, autocomplete: "address", placeholder: "(例)〇〇県□□市△△町番地", class: "form-control" %>
             </td>
           </tr>
           <tr>
             <td>電話番号(ハイフンなし)</td>
             <td></td>
             <td>
-              <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "11122223333", class: "form-control" %>
+              <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "(例)00012345678", class: "form-control" %>
             </td>
             <td></td>
           </tr>
@@ -77,7 +77,7 @@
             </td>
             <td></td>
             <td>
-              <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上必要です", class: "form-control" %>
             </td>
             <td></td>
           </tr>
@@ -85,7 +85,7 @@
             <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
             <td></td>
             <td>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "上記の値をもう一度入力してください", class: "form-control" %>
             </td>
             <td></td>
           </tr>
