@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @total = @order_details.inject(0) { |sum, item| sum + item.inclusive_price * item.quantity }
-    @shipping_cost = 800
+    @shipping_cost = 500
   end
 
   def update
