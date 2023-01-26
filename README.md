@@ -20,13 +20,13 @@
 みかんを購入するとき時、評価・口コミを投稿する時
 
 ## 設計書
-- テーブル定義書  
+- テーブル定義書
   https://docs.google.com/spreadsheets/d/1uYCX_tVN_dJHmUwzm0FF6fLcETkI3NJXPTr9iWF8USg/edit?usp=sharing
-- ER図  
+- ER図
   https://drive.google.com/file/d/1SG7Svz1-tITYC2AHGLCAob8miYYudZpm/view?usp=sharing
 
 ## 開発環境
-- OS：Mac(Ventura)
+- OS：Linux(Karoo)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails,Bootstrap
 - JSライブラリ：jQuery
