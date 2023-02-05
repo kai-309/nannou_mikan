@@ -52,17 +52,17 @@ ja:
             phone_number:
               blank: "が入力されていません"
               invalid: "はハイフン(-)なしの10桁、11桁で入力してください"
-  attributes:
-    customer:
-      email: "メールアドレス"
-      password: "パスワード"
-      password_confirmation: "パスワード(確認用)"
-      first_name: "名前(姓)"
-      last_name: "名前(名)"
-      first_name_kana: "フリガナ(セイ)"
-      last_name_kana: "フリガナ(メイ)"
-      post_code: "郵便番号"
-      address: "住所"
-      phone_number: "電話番号"
-    models:
-      customer: "会員情報"
+    attributes:
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"
+        first_name: "名前(姓)"
+        last_name: "名前(名)"
+        first_name_kana: "フリガナ(セイ)"
+        last_name_kana: "フリガナ(メイ)"
+        post_code: "郵便番号"
+        address: "住所"
+        phone_number: "電話番号"
+      models:
+        customer: "会員情報"
